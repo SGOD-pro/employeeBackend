@@ -2,6 +2,7 @@ import { Router } from "express";
 import { EmployeeRegsiter, setSalary, setJoining, getJoining, getOverview, fetchEmployeRecords, popEmp } from "../controller/employee.controller.js";
 import { upload } from "../middlewares/multer.js";
 const router = Router()
+
 router.route('/register').post(upload.fields(
     [
         { name: 'addhar', maxCount: 1 },
