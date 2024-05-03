@@ -4,7 +4,6 @@ import cookieParser from 'cookie-parser'
 const app = express()
 
 app.use(cors({
-    origin: process.env.CORS_ORIGIN,
     credentials: true
 }))
 
@@ -19,7 +18,7 @@ app.use(express.static('./public'))
 import employee from './routes/employee.routes.js'
 import timeAttendence from './routes/time_Attendence.routes.js'
 
-
+app.use('/', (req, res) => { res.json({ message: "deployed" }) })
 app.use('/api/employee', employee)
 app.use('/api/timeAtt', timeAttendence)
 
