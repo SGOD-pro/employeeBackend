@@ -12,13 +12,14 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 app.use(express.static('./public'))
 
-
+app.get('/api', (req, res) => {
+    res.json({ message: "deployed" });
+});
 
 // Routes
 import employee from './routes/employee.routes.js'
 import timeAttendence from './routes/time_Attendence.routes.js'
 
-app.use('/api', (req, res) => { res.json({ message: "deployed" }) })
 app.use('/api/employee', employee)
 app.use('/api/timeAtt', timeAttendence)
 
